@@ -5,6 +5,7 @@ import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +27,14 @@ public class InventoryPage extends PageObject {
         System.out.println(productTitle);
         return productTitle;
 
+    }
+    public boolean isOnProductInformationPage(){
+        boolean flag = false;
+        flag= $("[class='inventory_details_container']").isPresent();
+        return flag;
+    }
+    public void returnToIncentoryPage(){
+        $("[id='back-to-products']").click();
     }
 
 

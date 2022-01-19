@@ -105,4 +105,16 @@ public class InventorySteps {
             }
         }
     }
+
+    public void clickOnProduct()  {
+        List<WebElement> elements = inventoryPage.productsShown();
+
+        for (int i = 0; i < elements.size(); i++) {
+            elements.get(i).findElement(By.className("inventory_item_name")).click();
+            assertThat(inventoryPage.isOnProductInformationPage()).isTrue();
+            inventoryPage.returnToIncentoryPage();
+            System.out.println((i+1)+"st Product Ok");
+
+        }
+    }
 }

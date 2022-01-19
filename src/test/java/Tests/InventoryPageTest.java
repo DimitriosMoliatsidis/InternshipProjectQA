@@ -8,6 +8,8 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import Steps.InventorySteps;
 
+import java.time.Duration;
+
 @RunWith(SerenityRunner.class)
 public class InventoryPageTest {
 
@@ -37,11 +39,17 @@ public class InventoryPageTest {
 
     @Test
     public void arePricesCorrect(){
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(1));
         inventorySteps.isOnInventoryPage();
         inventorySteps.productsHavePrice();
 
         inventorySteps.isProductPriceCorrect();
 
+    }
+    @Test
+    public void clickOnProductShowsInfo()  {
+        inventorySteps.isOnInventoryPage();
+        inventorySteps.clickOnProduct();
     }
 
 }
