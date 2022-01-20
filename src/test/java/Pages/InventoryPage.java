@@ -2,6 +2,7 @@ package Pages;
 
 import net.serenitybdd.core.pages.ListOfWebElementFacades;
 import net.serenitybdd.core.pages.PageObject;
+import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -38,10 +39,9 @@ public class InventoryPage extends PageObject {
     }
 
 
-    public WebElement getSpecificProduct(int i) {
-        WebElement product=$("[id='item_"+i+"_title_link']");
-        System.out.println(product);
-        return product;
+    public WebElement getWholeProduct(int i) {
+
+        return $$("[class='inventory_item").get(i);
     }
 
     public void goToCart() {
@@ -52,8 +52,27 @@ public class InventoryPage extends PageObject {
     }
 
     public void checkIfProductGotInCart(int i) {
-        assertThat($("[id='item_"+i+"_title_link']").isDisplayed()).isTrue();
+        switch (i) {
+            case 0:
+                assertThat($("[id='item_4_title_link']").isDisplayed()).isTrue();
+                break;
+            case 1:
+                assertThat($("[id='item_0_title_link']").isDisplayed()).isTrue();
+                break;
+            case 2:
+                assertThat($("[id='item_1_title_link']").isDisplayed()).isTrue();
+                break;
+            case 3:
+                assertThat($("[id='item_5_title_link']").isDisplayed()).isTrue();
+                break;
+            case 4:
+                assertThat($("[id='item_2_title_link']").isDisplayed()).isTrue();
+                break;
+            case 5:
+                assertThat($("[id='item_3_title_link']").isDisplayed()).isTrue();
+                break;
 
+        }
     }
     public void getProductInCartFromDescription(){
         $("[class='btn btn_primary btn_small btn_inventory']").click();

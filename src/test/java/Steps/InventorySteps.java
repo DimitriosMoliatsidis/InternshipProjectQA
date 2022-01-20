@@ -116,32 +116,32 @@ public class InventorySteps {
     public void clickOnProduct()  {
 
         for (int i = 0; i < 6; i++) {
-            inventoryPage.getSpecificProduct(i).findElement(By.className("inventory_item_name")).click();
+            inventoryPage.getWholeProduct(i).findElement(By.className("inventory_item_name")).click();
             assertThat(inventoryPage.isOnProductInformationPage()).isTrue();
             inventoryPage.returnToIncentoryPage();
-            System.out.println((i+1)+"st Product Ok");
+            System.out.println((i+1)+". Product Ok");
 
         }
     }
     public void putProductInCart(){
         for (int i = 0; i < 6; i++) {
-            WebElement product= inventoryPage.getSpecificProduct(i);
+            WebElement product= inventoryPage.getWholeProduct(i);
             product.findElement(By.cssSelector("[class='btn btn_primary btn_small btn_inventory']")).click();
             inventoryPage.goToCart();
             inventoryPage.checkIfProductGotInCart(i);
             inventoryPage.returnFromCart();
-            System.out.println((i+1)+"st Product Ok");
+            System.out.println((i+1)+". Product Ok");
 
         }
     }
     public void putProductInCartFromDescription(){
         for (int i = 0; i < 6; i++) {
-            inventoryPage.getSpecificProduct(i).findElement(By.className("inventory_item_name")).click();
+            inventoryPage.getWholeProduct(i).findElement(By.className("inventory_item_name")).click();
             inventoryPage.getProductInCartFromDescription();
             inventoryPage.goToCart();
             inventoryPage.checkIfProductGotInCart(i);
             inventoryPage.returnFromCart();
-            System.out.println((i+1)+"st Product Ok");
+            System.out.println((i+1)+". Product Ok");
 
         }
     }
