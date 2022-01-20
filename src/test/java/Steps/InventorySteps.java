@@ -20,6 +20,7 @@ public class InventorySteps {
     @Step
     public void isOnInventoryPage(){
 
+
         loginPage.open();
         loginPage.doLoginRightCredencials();
         assertThat(loginPage.inventoryPageIsVisible()).isTrue();
@@ -27,6 +28,7 @@ public class InventorySteps {
 
     @Step
     public void productTitlesShown(){
+
         for(int i=0;i<6;i++){
             switch (i) {
                 case 0:
@@ -54,6 +56,7 @@ public class InventorySteps {
 
 
     public void productsHavePrice() {
+
         List<WebElement> elements = inventoryPage.productsShown();
         for (int i = 0; i < elements.size(); i++) {
             assertThat(
@@ -63,6 +66,7 @@ public class InventorySteps {
     }
 
     public void productsHaveDescription() {
+
         List<WebElement> elements = inventoryPage.productsShown();
         for (int i = 0; i < elements.size(); i++) {
             assertThat(
@@ -72,6 +76,7 @@ public class InventorySteps {
 
 
     public void productsHaveCartButton() {
+
         List<WebElement> elements = inventoryPage.productsShown();
         for (int i = 0; i < elements.size(); i++) {
             assertThat(
@@ -81,6 +86,7 @@ public class InventorySteps {
 
 
     public void isProductPriceCorrect() {
+
         List<WebElement> elements = inventoryPage.productsShown();
         for (int i = 0; i < elements.size(); i++) {
             switch (i) {
@@ -113,6 +119,28 @@ public class InventorySteps {
             inventoryPage.getSpecificProduct(i).findElement(By.className("inventory_item_name")).click();
             assertThat(inventoryPage.isOnProductInformationPage()).isTrue();
             inventoryPage.returnToIncentoryPage();
+            System.out.println((i+1)+"st Product Ok");
+
+        }
+    }
+    public void putProductInCart(){
+        for (int i = 0; i < 6; i++) {
+            WebElement product= inventoryPage.getSpecificProduct(i);
+            product.findElement(By.cssSelector("[class='btn btn_primary btn_small btn_inventory']")).click();
+            inventoryPage.goToCart();
+            inventoryPage.checkIfProductGotInCart(i);
+            inventoryPage.returnFromCart();
+            System.out.println((i+1)+"st Product Ok");
+
+        }
+    }
+    public void putProductInCartFromDescription(){
+        for (int i = 0; i < 6; i++) {
+            inventoryPage.getSpecificProduct(i).findElement(By.className("inventory_item_name")).click();
+            inventoryPage.getProductInCartFromDescription();
+            inventoryPage.goToCart();
+            inventoryPage.checkIfProductGotInCart(i);
+            inventoryPage.returnFromCart();
             System.out.println((i+1)+"st Product Ok");
 
         }

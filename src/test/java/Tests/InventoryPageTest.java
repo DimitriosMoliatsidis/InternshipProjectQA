@@ -21,13 +21,14 @@ public class InventoryPageTest {
 
     @Test
     public void areTheProductsShown() {
-        inventorySteps.isOnInventoryPage();
 
+        inventorySteps.isOnInventoryPage();
         inventorySteps.productTitlesShown();
     }
 
     @Test
     public void isTheInventoryShownCorrectly(){
+
         inventorySteps.isOnInventoryPage();
         inventorySteps.productsHavePrice();
         System.out.println("Price OK");
@@ -42,7 +43,6 @@ public class InventoryPageTest {
 
         inventorySteps.isOnInventoryPage();
         inventorySteps.productsHavePrice();
-
         inventorySteps.isProductPriceCorrect();
 
     }
@@ -51,6 +51,18 @@ public class InventoryPageTest {
 
         inventorySteps.isOnInventoryPage();
         inventorySteps.clickOnProduct();
+    }
+
+    @Test
+    public void addingProductToCartFromInventory(){
+        inventorySteps.isOnInventoryPage();
+        inventorySteps.putProductInCart();
+    }
+
+    @Test
+    public void addingProductToCartFromDescription(){
+        inventorySteps.isOnInventoryPage();
+        inventorySteps.putProductInCartFromDescription();
     }
 
 }

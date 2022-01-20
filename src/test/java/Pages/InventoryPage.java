@@ -43,4 +43,19 @@ public class InventoryPage extends PageObject {
         System.out.println(product);
         return product;
     }
+
+    public void goToCart() {
+        $("[class='shopping_cart_link']").click();
+    }
+    public void returnFromCart() {
+        $("[class='btn btn_secondary back btn_medium']").click();
+    }
+
+    public void checkIfProductGotInCart(int i) {
+        assertThat($("[id='item_"+i+"_title_link']").isDisplayed()).isTrue();
+
+    }
+    public void getProductInCartFromDescription(){
+        $("[class='btn btn_primary btn_small btn_inventory']").click();
+    }
 }
