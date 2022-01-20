@@ -38,4 +38,9 @@ public class InventoryPage extends PageObject {
     }
 
 
+    public WebElement getSpecificProduct(int i) {
+        WebElement product=$("[id='item_"+i+"_title_link']");
+        System.out.println(product);
+        return product;
+    }
 }

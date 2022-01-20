@@ -39,7 +39,7 @@ public class InventoryPageTest {
 
     @Test
     public void arePricesCorrect(){
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(1));
+
         inventorySteps.isOnInventoryPage();
         inventorySteps.productsHavePrice();
 
@@ -48,6 +48,7 @@ public class InventoryPageTest {
     }
     @Test
     public void clickOnProductShowsInfo()  {
+
         inventorySteps.isOnInventoryPage();
         inventorySteps.clickOnProduct();
     }

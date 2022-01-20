@@ -8,6 +8,8 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import Steps.LoginSteps;
 
+import java.time.Duration;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 
