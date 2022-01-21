@@ -2,6 +2,7 @@ package Pages;
 
 import net.serenitybdd.core.pages.ListOfWebElementFacades;
 import net.serenitybdd.core.pages.PageObject;
+import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -43,7 +44,7 @@ public class InventoryPage extends PageObject {
 
         return $$("[class='inventory_item").get(i);
     }
-
+    @Step
     public void goToCart() {
         $("[class='shopping_cart_link']").click();
     }

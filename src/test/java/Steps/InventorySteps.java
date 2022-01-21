@@ -4,6 +4,7 @@ import Pages.InventoryPage;
 import Pages.LoginPage;
 import net.serenitybdd.core.pages.ListOfWebElementFacades;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -14,8 +15,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class InventorySteps {
 
-    LoginPage loginPage;
-    InventoryPage inventoryPage;
+   public LoginPage loginPage;
+   @Steps
+   public InventoryPage inventoryPage;
 
     @Step
     public void isOnInventoryPage(){
@@ -123,6 +125,7 @@ public class InventorySteps {
 
         }
     }
+    @Step
     public void putProductInCart(){
         for (int i = 0; i < 6; i++) {
             WebElement product= inventoryPage.getWholeProduct(i);
@@ -134,6 +137,7 @@ public class InventorySteps {
 
         }
     }
+    @Step
     public void putProductInCartFromDescription(){
         for (int i = 0; i < 6; i++) {
             inventoryPage.getWholeProduct(i).findElement(By.className("inventory_item_name")).click();
